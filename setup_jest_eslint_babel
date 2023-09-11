@@ -5,6 +5,15 @@ command_exists() {
   command -v "$1" >/dev/null 2>&1
 }
 
+# Create .gitignore file
+echo 'node_modules
+/package-lock.json
+/package.json
+/nodesource_setup.sh
+/babel.config.js
+/.eslintrc.js
+/.gitignore' > .gitignore
+
 # Install Node.js
 if ! command_exists node; then
   curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
